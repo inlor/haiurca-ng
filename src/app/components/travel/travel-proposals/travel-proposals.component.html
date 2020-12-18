@@ -1,0 +1,25 @@
+<Nav title="Travel Proposals"></Nav>
+
+<GridLayout class="page__content">
+
+    <ActivityIndicator [busy]="isBusy"></ActivityIndicator>
+
+    <Message *ngIf="error" message="{{'error' | L}}" logo="&#xf188;"></Message>
+
+    <Message *ngIf="results.length === 0 && !isBusy && !error" message="{{'no-proposals' | L}}" logo="&#xf4d7;"></Message>
+
+    <ListView *ngIf="results.length > 0" [items]="results">
+        <ScrollView>
+            <ng-template let-item="item">
+                <StackLayout>
+                    <Label [text]="item.origin.name"></Label>
+                    <Label [text]="item.destination.name"></Label>
+                    <Label [text]="item.price"></Label>
+                    <Button (tap)="onDeleteTap(item)" text="{{'delete' | L}}"></Button>
+                </StackLayout>
+            </ng-template>
+        </ScrollView>
+    </ListView>
+
+    <Button text="Add new travel" (tap)="addTravelTap()"></Button>
+</GridLayout>

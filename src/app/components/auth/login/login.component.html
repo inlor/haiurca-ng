@@ -1,0 +1,28 @@
+<Nav title="{{'login' | L}}"></Nav>
+
+<GridLayout class="page__content">
+    <ScrollView>
+        <StackLayout>
+            <TextField [(ngModel)]="user.email"
+                       keyboardType="email"
+                       returnKeyType="next"
+                       hint="{{'email' | L}}"
+                       autocapitalizationType="none"
+                       autocorrect="false"
+                       required>
+            </TextField>
+
+            <TextField [(ngModel)]="user.password"
+                       secure="true"
+                       hint="{{'password' | L}}"
+                       required>
+            </TextField>
+
+            <Button
+                    *ngIf="user.email !== undefined && user.password !== undefined"
+                    text="{{'login' | L}}"
+                    (tap)="onLoginTap()">
+            </Button>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

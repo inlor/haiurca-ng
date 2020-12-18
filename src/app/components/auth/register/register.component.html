@@ -1,0 +1,33 @@
+<Nav title="{{'register' | L}}"></Nav>
+
+<GridLayout class="page__content">
+    <ScrollView>
+        <StackLayout>
+            <TextField [(ngModel)]="user.name"
+                       returnKeyType="next"
+                       hint="Name"
+                       required>
+            </TextField>
+
+            <TextField [(ngModel)]="user.email"
+                       keyboardType="email"
+                       returnKeyType="next"
+                       hint="{{'email' | L}}"
+                       autocapitalizationType="none"
+                       autocorrect="false"
+                       required>
+            </TextField>
+
+            <TextField [(ngModel)]="user.password"
+                       secure="true"
+                       hint="{{'password' | L}}"
+                       required>
+            </TextField>
+
+            <Button
+                    text="{{'register' | L}}"
+                    (tap)="onRegisterTap()">
+            </Button>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

@@ -1,0 +1,39 @@
+<Nav title="Travel add"></Nav>
+
+<GridLayout class="page__content">
+
+    <ActivityIndicator [busy]="isBusy && !error"></ActivityIndicator>
+
+    <Message *ngIf="error" message="{{'error' | L}}" logo="&#xf188;"></Message>
+
+    <StackLayout *ngIf="!isBusy">
+        <PickerField hint="{{'origin' | L}}"
+                     pickerTitle="{{'origin' | L}}"
+                     [items]="cities"
+                     [(ngModel)]="travel.origin"
+                     textField="toString()">
+        </PickerField>
+
+        <PickerField hint="{{'destination' | L}}"
+                     pickerTitle="{{'destination' | L}}"
+                     [items]="cities"
+                     [(ngModel)]="travel.destination"
+                     textField="toString()">
+        </PickerField>
+
+        <DatePickerField
+                hint="{{'date' | L}}"
+                [(ngModel)]="travel.go"
+                minDate="2020-01-01"
+                maxDate="2021-12-31">
+        </DatePickerField>
+
+        <TextView hint="{{'description' | L}}"
+                  [text]="travel.description">
+        </TextView>
+
+        <Button text="{{'add' | L}}"
+                (tap)="onEditTap()">
+        </Button>
+    </StackLayout>
+</GridLayout>

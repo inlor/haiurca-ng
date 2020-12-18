@@ -1,0 +1,21 @@
+<Nav title="{{'profile' | L}}"></Nav>
+
+<GridLayout class="page__content">
+    <StackLayout>
+        <TextField [(ngModel)]="user.name"
+                   keyboardType="email"
+                   returnKeyType="next"
+                   hint="{{'name' | L}}"
+                   autocorrect="false">
+        </TextField>
+
+        <TextField [(ngModel)]="user.phone"
+                   keyboardType="phone"
+                   hint="{{'phone' | L}}">
+        </TextField>
+
+        <Button text="{{'save' | L}}"
+                (tap)="onSaveTap()">
+        </Button>
+    </StackLayout>
+</GridLayout>

@@ -1,0 +1,11 @@
+<ListView *ngIf="travels.length > 0" [items]="travels">
+    <ScrollView>
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label [text]="item.origin.name"></Label>
+                <Label [text]="item.destination.name"></Label>
+                <Label [text]="item.price"></Label>
+            </StackLayout>
+        </ng-template>
+    </ScrollView>
+</ListView>
